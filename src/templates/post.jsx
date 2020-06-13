@@ -26,7 +26,7 @@ const PostHeroContainer = styled("div")`
 
 const PostHeroAnnotation = styled("div")`
     padding-top: 0.25em;
-    width: 60%
+    width: 70%;
     display: block;
     margin-left: auto;
     margin-right: auto;
