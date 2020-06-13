@@ -40,11 +40,6 @@ const FooterAuthor = styled("a")`
     }
 `
 
-const FooterSpooch = styled("img")`
-    max-width: 33px;
-    margin-top: 0.25em;
-`
-
 const Footer = () => (
     <FooterContainer>
         <FooterAuthor href="https://faizsurani.com">

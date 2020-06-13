@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react"
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
@@ -13,10 +13,10 @@ const BlogTitle = styled("h1")`
 
 const BlogGrid = styled("div")`
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 2.5em;
 
-    @media(max-width: 1050px) {
+    @media(max-width: 1000px) {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 1.5em;
     }
@@ -73,6 +73,7 @@ const Blog = ({ posts, meta }) => (
             </BlogTitle>
             <BlogGrid>
                 {posts.map((post, i) => (
+                  <Fragment>
                     <PostCard
                         key={i}
                         author={post.node.post_author}
@@ -82,6 +83,7 @@ const Blog = ({ posts, meta }) => (
                         description={post.node.post_preview_description}
                         uid={post.node._meta.uid}
                     />
+                  </Fragment>
                 ))}
             </BlogGrid>
         </Layout>

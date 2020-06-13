@@ -119,7 +119,7 @@ const ProjectCardImageContainer = styled("div")`
     background: ${colors.grey200};
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     overflow: hidden;
     position: relative;
     padding-left: 2em;
@@ -150,7 +150,6 @@ const ProjectCardImageContainer = styled("div")`
         max-width: 400px;
         width: 100%;
         box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04);
-
         @media(max-width:${dimensions.maxwidthTablet}px) {
             max-width: 300px;
         }
