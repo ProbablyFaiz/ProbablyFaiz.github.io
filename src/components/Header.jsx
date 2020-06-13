@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "gatsby";
-import styled from "@emotion/styled";
-import colors from "styles/colors";
-import dimensions from "styles/dimensions";
-import Logo from "components/_ui/Logo";
+import React from "react"
+import { Link } from "gatsby"
+import styled from "@emotion/styled"
+import colors from "styles/colors"
+import dimensions from "styles/dimensions"
+import Logo from "components/_ui/Logo"
 
 const HeaderContainer = styled("div")`
     padding-top: 3.75em;
@@ -73,25 +73,28 @@ const HeaderLinks = styled("div")`
 `
 
 const Header = () => (
-    <HeaderContainer>
-        <HeaderContent>
-            <Link to="/">
-                <Logo/>
-            </Link>
-            <HeaderLinks>
-                <Link
-                    activeClassName="Link--is-active"
-                    to="/work">
-                    Work
-                </Link>
-                <Link
-                    activeClassName="Link--is-active"
-                    to="/blog">
-                    Blog
-                </Link>
-            </HeaderLinks>
-        </HeaderContent>
-    </HeaderContainer>
+  <HeaderContainer>
+    <HeaderContent>
+      <Link to="/" style={{
+        "textDecoration": "inherit",
+        "color": "inherit",
+      }}>
+        <h2 style={{marginTop: 0}}>Faiz Surani</h2>
+      </Link>
+      <HeaderLinks>
+        <Link
+          activeClassName="Link--is-active"
+          to="/work">
+          Projects
+        </Link>
+        <Link
+          activeClassName="Link--is-active"
+          to="/blog">
+          Blog
+        </Link>
+      </HeaderLinks>
+    </HeaderContent>
+  </HeaderContainer>
 )
 
-export default Header;
+export default Header

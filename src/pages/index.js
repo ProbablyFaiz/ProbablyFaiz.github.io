@@ -96,8 +96,8 @@ const WorkAction = styled(Link)`
 const RenderBody = ({ home, projects, meta }) => (
     <>
         <Helmet
-            title={meta.title}
-            titleTemplate={`%s | ${meta.title}`}
+            title={`Home | Faiz Surani`}
+            titleTemplate={`%s | Faiz Surani`}
             meta={[
                 {
                     name: `description`,
@@ -105,7 +105,7 @@ const RenderBody = ({ home, projects, meta }) => (
                 },
                 {
                     property: `og:title`,
-                    content: meta.title,
+                    content: "Home | Faiz Surani",
                 },
                 {
                     property: `og:description`,
