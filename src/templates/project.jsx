@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from "prop-types";
-import Helmet from "react-helmet";
-import styled from "@emotion/styled";
-import colors from "styles/colors";
-import { Link, graphql } from 'gatsby';
-import { RichText } from "prismic-reactjs";
-import Button from "components/_ui/Button";
-import Layout from "components/Layout";
+import React from "react"
+import PropTypes from "prop-types"
+import Helmet from "react-helmet"
+import styled from "@emotion/styled"
+import colors from "styles/colors"
+import { Link, graphql } from "gatsby"
+import { RichText } from "prismic-reactjs"
+import Button from "components/_ui/Button"
+import Layout from "components/Layout"
 
 const ProjectHeroContainer = styled("div")`
     background: ${colors.grey200};
@@ -23,14 +23,14 @@ const ProjectHeroContainer = styled("div")`
     }
 `
 
-const ProjectTitle = styled("div") `
+const ProjectTitle = styled("div")`
     max-width: 550px;
     margin: 0 auto;
     text-align: center;
 `
 
 const ProjectBody = styled("div")`
-    max-width: 550px;
+    max-width: 750px;
     margin: 0 auto;
 
     .block-img {
@@ -43,87 +43,125 @@ const ProjectBody = styled("div")`
     }
 `
 
-const WorkLink = styled(Link)`
-    margin-top: 3em;
+const WorkButtons = styled("div")`
+    margin: 0 auto;
+    margin-top: 1.5em;
     display: block;
     text-align: center;
 `
 
+const WorkLink = styled(Link)`
+    text-align: center;
+    margin-left: 4px;
+`
+
+const WorkAnchor = styled("a")`
+    text-align: center;
+    margin-right: 4px;
+`
+const ProjectViewLink = ({url}) => {
+  if (url.includes(".pdf")) {
+    return (
+      <WorkAnchor href={url}>
+        <Button className="Button--secondary">
+          View PDF
+        </Button>
+      </WorkAnchor>
+    )
+  } else if (url.includes("github.com")) {
+    return (
+      <WorkAnchor href={url}>
+        <Button className="Button--secondary">
+          View on GitHub
+        </Button>
+      </WorkAnchor>)
+  }
+  return (
+    <WorkAnchor href={url}>
+      <Button className="Button--secondary">
+        View Project
+      </Button>
+    </WorkAnchor>
+  )
+}
 
 const Project = ({ project, meta }) => {
-    return (
-        <>
-            <Helmet
-                title={`${project.project_title[0].text}`}
-                titleTemplate={`%s | Work | Faiz Surani`}
-                meta={[
-                    {
-                        name: `description`,
-                        content: meta.description,
-                    },
-                    {
-                        property: `og:title`,
-                        content: `${project.project_title[0].text} | Faiz Surani`,
-                    },
-                    {
-                        property: `og:description`,
-                        content: meta.description,
-                    },
-                    {
-                        property: `og:type`,
-                        content: `website`,
-                    },
-                    {
-                        name: `twitter:card`,
-                        content: `summary`,
-                    },
-                    {
-                        name: `twitter:creator`,
-                        content: meta.author,
-                    },
-                    {
-                        name: `twitter:title`,
-                        content: meta.title,
-                    },
-                    {
-                        name: `twitter:description`,
-                        content: meta.description,
-                    },
-                ].concat(meta)}
-            />
-            <Layout>
-                <ProjectTitle>
-                    {RichText.render(project.project_title)}
-                </ProjectTitle>
-                {project.project_hero_image && (
-                    <ProjectHeroContainer>
-                        <img src={project.project_hero_image.url} alt="bees" />
-                    </ProjectHeroContainer>
-                )}
-                <ProjectBody>
-                    {RichText.render(project.project_description)}
-                    <WorkLink to={"/work"}>
-                        <Button className="Button--secondary">
-                            See other work
-                        </Button>
-                    </WorkLink>
-                </ProjectBody>
-            </Layout>
-        </>
-    )
+  return (
+    <>
+      <Helmet
+        title={`${project.project_title[0].text}`}
+        titleTemplate={`%s | Work | Faiz Surani`}
+        meta={[
+          {
+            name: `description`,
+            content: meta.description,
+          },
+          {
+            property: `og:title`,
+            content: `${project.project_title[0].text} | Faiz Surani`,
+          },
+          {
+            property: `og:description`,
+            content: meta.description,
+          },
+          {
+            property: `og:type`,
+            content: `website`,
+          },
+          {
+            name: `twitter:card`,
+            content: `summary`,
+          },
+          {
+            name: `twitter:creator`,
+            content: meta.author,
+          },
+          {
+            name: `twitter:title`,
+            content: meta.title,
+          },
+          {
+            name: `twitter:description`,
+            content: meta.description,
+          },
+        ].concat(meta)}
+      />
+      <Layout>
+        <ProjectTitle>
+          {RichText.render(project.project_title)}
+        </ProjectTitle>
+        {project.project_hero_image && (
+          <ProjectHeroContainer>
+            <img src={project.project_hero_image.url} alt="bees"/>
+          </ProjectHeroContainer>
+        )}
+        <ProjectBody>
+          {RichText.render(project.project_description)}
+          <WorkButtons>
+            <ProjectViewLink url={project.project_url[0].text} />
+            <WorkLink to={"/work"}>
+              <Button className="Button--secondary">
+                See other work
+              </Button>
+            </WorkLink>
+          </WorkButtons>
+        </ProjectBody>
+      </Layout>
+    </>
+  )
 }
 
 export default ({ data }) => {
-    const projectContent = data.prismic.allProjects.edges[0].node;
-    const meta = data.site.siteMetadata;
-    return (
-        <Project project={projectContent} meta={meta}/>
-    )
+  const projectContent = data.prismic.allProjects.edges[0].node
+  const meta = data.site.siteMetadata
+  return (
+    <Project project={projectContent} meta={meta}/>
+  )
 }
 
 Project.propTypes = {
-    project: PropTypes.object.isRequired,
-};
+  project: PropTypes.object.isRequired,
+}
 
 export const query = graphql`
     query ProjectQuery($uid: String) {
@@ -138,6 +176,7 @@ export const query = graphql`
                         project_post_date
                         project_hero_image
                         project_description
+                        project_url
                         _meta {
                             uid
                         }
