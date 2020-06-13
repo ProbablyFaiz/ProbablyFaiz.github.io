@@ -88,6 +88,8 @@ const About = ({ bio, socialLinks }) => (
                     key={i}
                     href={social.about_link[0].spans[0].data.url}
                     target="_blank" rel="noopener noreferrer">
+                  {social.about_link[0].text === "GitHub" && <i className="fa fa-github" style={{fontSize:"24px", marginRight: "8px"}}/>}
+                  {social.about_link[0].text === "LinkedIn" && <i className="fa fa-linkedin" style={{fontSize:"24px", marginRight: "8px"}}/>}
                     {social.about_link[0].text}
                     <span>&#8594;</span>
                 </AboutLink>

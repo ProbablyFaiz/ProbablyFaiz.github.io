@@ -18,7 +18,7 @@ const HeaderContent = styled("div")`
 const HeaderLinks = styled("div")`
     display: grid;
     grid-template-columns: repeat(2, auto);
-    grid-gap: 7em;
+    grid-gap: 5em;
     justify-content: flex-end;
     width: 100%;
     max-width: 200px;
@@ -79,7 +79,7 @@ const Header = () => (
         "textDecoration": "inherit",
         "color": "inherit",
       }}>
-        <h2 style={{marginTop: 0}}>Faiz Surani</h2>
+        <h2 style={{marginTop: 0, marginBottom: 0}}>Faiz Surani</h2>
       </Link>
       <HeaderLinks>
         <Link
