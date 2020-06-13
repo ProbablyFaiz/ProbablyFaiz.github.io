@@ -8,8 +8,8 @@ import PropTypes from "prop-types";
 const AboutContainer = styled("div")`
     padding-top: 1em;
     display: grid;
-    grid-template-columns: 8em 1fr 8em;
-    grid-gap: 3em;
+    grid-template-columns: 8em 0.89fr 8em;
+    grid-gap: 2em;
 
     @media(max-width: ${dimensions.maxwidthTablet}px) {
         grid-template-columns: 1fr 3fr 1fr;
@@ -59,7 +59,7 @@ const AboutLink = styled("a")`
 
 const AboutBio = styled("div")`
     padding-bottom: 3em;
-    max-width: 480px;
+    max-width: 500px;
 
 
     @media(max-width: ${dimensions.maxwidthMobile}px) {
@@ -68,7 +68,7 @@ const AboutBio = styled("div")`
 `
 
 const AboutActions = styled("div")`
-    padding-top: 1em;
+    padding-top: 0em;
     padding-bottom: 3em;
 
 
@@ -94,16 +94,18 @@ const About = ({ bio, socialLinks }) => (
                     <span>&#8594;</span>
                 </AboutLink>
             ))}
+
         </AboutLinkContainer>
         <AboutBio>
             {RichText.render(bio)}
         </AboutBio>
         <AboutActions>
-            <a href="mailto:faiz.surani@gmail.com" target="_blank" rel="noopener noreferrer">
-                <Button className="Button--secondary">
-                    Email me
-                </Button>
-            </a>
+            {/*<a href="mailto:faiz.surani@gmail.com" target="_blank" rel="noopener noreferrer">*/}
+            {/*    <Button className="Button--secondary">*/}
+            {/*        Email me*/}
+            {/*    </Button>*/}
+            {/*</a>*/}
+            <img src={"/photo.jpg"} style={{borderRadius: "50%", width: "200px", alignItems: "right"}} />
         </AboutActions>
     </AboutContainer>
 )

@@ -147,7 +147,7 @@ const RenderBody = ({ home, projects, meta }) => (
             </a>
         </Hero>
         <Section>
-            {projects.map((project, i) => (
+            {projects.slice(0, 2).map((project, i) => (
                 <ProjectCard
                     key={i}
                     category={project.node.project_category || ''}
