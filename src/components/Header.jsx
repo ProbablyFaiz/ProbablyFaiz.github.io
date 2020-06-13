@@ -17,14 +17,14 @@ const HeaderContent = styled("div")`
 
 const HeaderLinks = styled("div")`
     display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-gap: 5em;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 4em;
     justify-content: flex-end;
     width: 100%;
     max-width: 200px;
 
     @media(max-width: ${dimensions.maxwidthTablet}px) {
-        grid-gap: 5.5em;
+        grid-gap: 3.5em;
     }
 
     @media(max-width: ${dimensions.maxwidthMobile}px) {
@@ -39,7 +39,7 @@ const HeaderLinks = styled("div")`
         font-size: 0.95em;
         height: 100%;
         padding-bottom: 1.25em;
-        padding-top: 0.25em;
+        padding-top: 0.5em;
         display: block;
         position: relative;
 
@@ -74,6 +74,7 @@ const HeaderLinks = styled("div")`
 
 const Header = () => (
   <HeaderContainer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <HeaderContent>
       <Link to="/" style={{
         "textDecoration": "inherit",
@@ -92,6 +93,9 @@ const Header = () => (
           to="/blog">
           Blog
         </Link>
+        <a href="https://github.com/ProbablyFaiz" style={{textAlign: "center", paddingTop: "0.36em"}}>
+          <i className="fa fa-github" style={{ fontSize: "24px"}}/>
+        </a>
       </HeaderLinks>
     </HeaderContent>
   </HeaderContainer>
