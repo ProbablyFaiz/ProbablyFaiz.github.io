@@ -137,7 +137,7 @@ const RenderBody = ({ home, projects, meta }) => (
             <>
                 {RichText.render(home.hero_title)}
             </>
-            <a href={home.hero_button_link.url}
+            <a href={'/resume.pdf'}
                target="_blank" rel="noopener noreferrer">
                 <Button>
                     {RichText.render(home.hero_button_text)}
@@ -148,7 +148,7 @@ const RenderBody = ({ home, projects, meta }) => (
             {projects.map((project, i) => (
                 <ProjectCard
                     key={i}
-                    category={project.node.project_category}
+                    category={project.node.project_category || ''}
                     title={project.node.project_title}
                     description={project.node.project_preview_description}
                     thumbnail={project.node.project_preview_thumbnail}
