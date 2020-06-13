@@ -1,14 +1,14 @@
-import React from "react";
-import Button from "components/_ui/Button";
-import styled from "@emotion/styled";
-import dimensions from "styles/dimensions";
-import { RichText } from "prismic-reactjs";
-import PropTypes from "prop-types";
+import React from "react"
+import Button from "components/_ui/Button"
+import styled from "@emotion/styled"
+import dimensions from "styles/dimensions"
+import { RichText } from "prismic-reactjs"
+import PropTypes from "prop-types"
 
 const AboutContainer = styled("div")`
     padding-top: 1em;
     display: grid;
-    grid-template-columns: 8em 0.89fr 8em;
+    grid-template-columns: 8em 0.9fr 8em;
     grid-gap: 2em;
 
     @media(max-width: ${dimensions.maxwidthTablet}px) {
@@ -59,7 +59,7 @@ const AboutLink = styled("a")`
 
 const AboutBio = styled("div")`
     padding-bottom: 3em;
-    max-width: 500px;
+    max-width: 750px;
 
 
     @media(max-width: ${dimensions.maxwidthMobile}px) {
@@ -81,38 +81,46 @@ const AboutActions = styled("div")`
 
 
 const About = ({ bio, socialLinks }) => (
-    <AboutContainer>
-        <AboutLinkContainer>
-            {socialLinks.map((social, i) => (
-                <AboutLink
-                    key={i}
-                    href={social.about_link[0].spans[0].data.url}
-                    target="_blank" rel="noopener noreferrer">
-                  {social.about_link[0].text === "GitHub" && <i className="fa fa-github" style={{fontSize:"24px", marginRight: "8px"}}/>}
-                  {social.about_link[0].text === "LinkedIn" && <i className="fa fa-linkedin" style={{fontSize:"24px", marginRight: "8px"}}/>}
-                    {social.about_link[0].text}
-                    <span>&#8594;</span>
-                </AboutLink>
-            ))}
-
-        </AboutLinkContainer>
-        <AboutBio>
-            {RichText.render(bio)}
-        </AboutBio>
-        <AboutActions>
-            {/*<a href="mailto:faiz.surani@gmail.com" target="_blank" rel="noopener noreferrer">*/}
-            {/*    <Button className="Button--secondary">*/}
-            {/*        Email me*/}
-            {/*    </Button>*/}
-            {/*</a>*/}
-            <img src={"/photo.jpg"} style={{borderRadius: "50%", width: "200px", alignItems: "right"}} />
-        </AboutActions>
-    </AboutContainer>
+  <AboutContainer>
+    <AboutLinkContainer>
+      {socialLinks.map((social, i) => (
+        <AboutLink
+          key={i}
+          href={social.about_link[0].spans[0].data.url}
+          target="_blank" rel="noopener noreferrer">
+          {social.about_link[0].text === "GitHub" &&
+          <i className="fa fa-github" style={{ fontSize: "24px", marginRight: "8px" }}/>}
+          {social.about_link[0].text === "LinkedIn" &&
+          <i className="fa fa-linkedin" style={{ fontSize: "24px", marginRight: "8px" }}/>}
+          {social.about_link[0].text}
+          <span>&#8594;</span>
+        </AboutLink>
+      ))}
+      <AboutLink key={10}
+                 href="mailto:faiz.surani@gmail.com"
+                 target="_blank" rel="noopener noreferrer">
+        <i className="fa fa-at" style={{ fontSize: "24px", marginRight: "8px" }}/>
+        Email
+        <span>&#8594;</span>
+      </AboutLink>
+    </AboutLinkContainer>
+    <AboutBio>
+      {RichText.render(bio)}
+    </AboutBio>
+    <AboutActions>
+      {/*<a href="mailto:faiz.surani@gmail.com" target="_blank" rel="noopener noreferrer">*/}
+      {/*    <Button className="Button--secondary">*/}
+      {/*        Email me*/}
+      {/*    </Button>*/}
+      {/*</a>*/}
+      {/*<img src={"/photo.jpg"} style={{borderRadius: "50%", width: "200px", alignItems: "right"}} />*/}
+    </AboutActions>
+  </AboutContainer>
 )
 
-export default About;
+export default About
 
 About.propTypes = {
-    bio: PropTypes.array.isRequired,
-    socialLinks: PropTypes.array.isRequired,
-};
+  bio: PropTypes.array.isRequired,
+  socialLinks: PropTypes.array.isRequired,
+}

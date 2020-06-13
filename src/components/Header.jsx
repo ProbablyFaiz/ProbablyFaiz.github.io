@@ -79,7 +79,7 @@ const Header = () => (
         "textDecoration": "inherit",
         "color": "inherit",
       }}>
-        <h2 style={{marginTop: 0, marginBottom: 0}}>Faiz Surani</h2>
+        <h2 style={{marginTop: 0, marginBottom: 0, fontVariant: "small-caps"}}>Faiz Surani</h2>
       </Link>
       <HeaderLinks>
         <Link

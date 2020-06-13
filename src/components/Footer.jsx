@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import colors from "styles/colors";
 
 const FooterContainer = styled("div")`
-    padding-top: 3.75em;
+    padding-top: 0em;
     padding-bottom: 3em;
     display: flex;
     flex-direction: column;
@@ -25,13 +25,6 @@ const FooterAuthor = styled("a")`
 
      &:hover {
          color: ${colors.blue900};
-
-        .FooterSpooch {
-            animation-name: rotate;
-            animation-duration: 1.5s;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
-        }
     }
 
     @keyframes rotate {
