@@ -93,8 +93,8 @@ const Header = () => (
           to="/blog">
           Blog
         </Link>
-        <a href="https://github.com/ProbablyFaiz" style={{textAlign: "center", paddingTop: "0.36em"}}>
-          <i className="fa fa-github" style={{ fontSize: "24px"}}/>
+        <a href="https://github.com/ProbablyFaiz" target="_blank" style={{textAlign: "center", paddingTop: "0.36em"}}>
+          <i className="fa fa-github"style={{ fontSize: "24px"}}/>
         </a>
       </HeaderLinks>
     </HeaderContent>

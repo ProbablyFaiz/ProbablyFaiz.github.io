@@ -36,8 +36,10 @@ const PostCardContainer = styled(Link)`
 `
 
 const PostCategory = styled("h6")`
+    font-variant: small-caps;
+    font-size: 1.1em;
     font-weight: 600;
-    color: ${colors.grey600};
+    color: ${colors.grey700};
 `
 
 const PostTitle = styled("h3")`
@@ -51,7 +53,7 @@ const PostMetas = styled("div")`
     margin-top: 1.5em;
     justify-content: space-between;
     font-size: 0.85em;
-    color: ${colors.grey600};
+    color: ${colors.grey700};
 `
 
 const PostAuthor = styled("div")`
