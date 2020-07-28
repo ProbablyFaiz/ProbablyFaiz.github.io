@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: `Faiz Surani`,
-        description: `Faiz's personal portfolio website.`,
+    description: `Faiz's personal portfolio website.`,
     author: `Faiz Surani`,
+    siteUrl: `https://faizsurani.com`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -47,6 +48,12 @@ module.exports = {
             trackingId: "YOUR_GOOGLE_ANALYTICS_TRACKING_ID",
             head: true,
         },
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `faizsurani-com`
+      }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

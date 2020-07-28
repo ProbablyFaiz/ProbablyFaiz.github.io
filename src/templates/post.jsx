@@ -7,6 +7,7 @@ import { RichText } from "prismic-reactjs"
 import styled from "@emotion/styled"
 import colors from "styles/colors"
 import Layout from "components/Layout"
+import { Disqus } from 'gatsby-plugin-disqus'
 
 const PostHeroContainer = styled("div")`
     max-height: 600px;
@@ -99,6 +100,11 @@ const PostDate = styled("div")`
 `
 
 const Post = ({ post, meta }) => {
+  let disqusConfig = {
+    url: `${meta.siteUrl + window.location.pathname}`,
+    identifier: post._meta.id,
+    title: post.title,
+  }
   return (
     <>
       <Helmet
@@ -165,6 +171,7 @@ const Post = ({ post, meta }) => {
         <PostBody>
           {RichText.render(post.post_body)}
         </PostBody>
+        <Disqus config={disqusConfig} />
       </Layout>
     </>
   )
