@@ -100,9 +100,10 @@ const PostDate = styled("div")`
 `
 
 const Post = ({ post, meta }) => {
+  const location = typeof window !== `undefined` ? window.location.pathname : post._meta.uid;
   let disqusConfig = {
-    url: `${meta.siteUrl + window.location.pathname}`,
-    identifier: post._meta.id,
+    url: `${meta.siteUrl + location}`,
+    identifier: post._meta.uid,
     title: post.title,
   }
   return (
