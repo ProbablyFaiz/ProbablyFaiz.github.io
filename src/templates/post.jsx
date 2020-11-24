@@ -67,7 +67,7 @@ const PostTitle = styled("div")`
 `
 
 const PostBody = styled("div")`
-    max-width: 650px;
+    max-width: 600px;
     margin: 0 auto;
 
     .block-img {
@@ -169,9 +169,11 @@ const Post = ({ post, meta }) => {
             </PostHeroAnnotation>
           </PostHeroContainer>
         )}
-        <PostBody>
-          {RichText.render(post.post_body)}
-        </PostBody>
+        <div style={{fontFamily: "Georgia", fontSize: "1.2rem"}}>
+          <PostBody>
+            {RichText.render(post.post_body)}
+          </PostBody>
+        </div>
         <Disqus config={disqusConfig} />
       </Layout>
     </>

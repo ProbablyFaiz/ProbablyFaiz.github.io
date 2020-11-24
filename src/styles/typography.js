@@ -41,7 +41,7 @@ const typeStyles = css`
     }
 
     p {
-        line-height: 1.9;
+        line-height: 1.65;
     }
 
     a {
