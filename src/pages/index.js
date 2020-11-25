@@ -146,7 +146,7 @@ const RenderBody = ({ home, projects, meta }) => (
             </a>
         </Hero>
         <Section>
-            {projects.filter(project => ["drdocx", "revival-of-the-independent-state-legislature-doctrine"].includes(project.node._meta.uid)).map((project, i) => (
+            {projects.filter(project => ["drdocx", "overturn-the-third-party-doctrine"].includes(project.node._meta.uid)).map((project, i) => (
                 <ProjectCard
                     key={i}
                     category={project.node.project_category || ''}
